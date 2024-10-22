@@ -6,7 +6,8 @@
     "scripts": {
       "build": "tsc",
       "start": "node dist/server.js",
-      "dev": "nodemon src/server.ts --exec ts-node"
+      "dev": "nodemon src/server.ts --exec ts-node",
+       "test": "jest" 
     },
     "keywords": [],
     "author": "",
