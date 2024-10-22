@@ -1,0 +1,47 @@
+{
+    "tables": [
+      {
+        "name": "User",
+        "columns": [
+          { "name": "name", "type": "string" },
+          { "name": "email", "type": "email", "unique": true },
+          { "name": "password", "type": "string" },
+          { "name": "role", "type": "string" }
+        ]
+      },
+      {
+        "name": "Team",
+        "columns": [
+          { "name": "name", "type": "string" },
+          { "name": "description", "type": "text" },
+          { "name": "adminId", "type": "link", "link": { "table": "User" } },
+          { "name": "members", "type": "multiple", "link": { "table": "User" } }
+        ]
+      },
+      {
+        "name": "Project",
+        "columns": [
+          { "name": "name", "type": "string" },
+          { "name": "teamId", "type": "link", "link": { "table": "Team" } }
+        ]
+      },
+      {
+        "name": "Task",
+        "columns": [
+          { "name": "description", "type": "text" },
+          { "name": "status", "type": "string" },
+          { "name": "dueDate", "type": "datetime" },
+          { "name": "projectId", "type": "link", "link": { "table": "Project" } },
+          { "name": "assignedToId", "type": "link", "link": { "table": "User" } }
+        ]
+      },
+      {
+        "name": "Comment",
+        "columns": [
+          { "name": "content", "type": "text" },
+          { "name": "taskId", "type": "link", "link": { "table": "Task" } },
+          { "name": "userId", "type": "link", "link": { "table": "User" } }
+        ]
+      }
+    ]
+  }
